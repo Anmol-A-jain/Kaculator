@@ -1,0 +1,461 @@
+<html>
+<head>
+<title>MainActivity.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #cc7832;}
+.s1 { color: #a9b7c6;}
+.s2 { color: #808080;}
+.s3 { color: #6a8759;}
+.s4 { color: #6897bb;}
+</style>
+</head>
+<body bgcolor="#2b2b2b">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+MainActivity.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span><span class="s1">com.example.kaculator</span><span class="s0">;</span>
+
+import <span class="s1">android.support.v7.app.AppCompatActivity</span><span class="s0">;</span>
+import <span class="s1">android.os.Bundle</span><span class="s0">;</span>
+import <span class="s1">android.view.View</span><span class="s0">;</span>
+import <span class="s1">android.widget.Button</span><span class="s0">;</span>
+import <span class="s1">android.widget.TextView</span><span class="s0">;</span>
+
+public class <span class="s1">MainActivity </span><span class="s0">extends </span><span class="s1">AppCompatActivity </span><span class="s0">implements </span><span class="s1">View.OnClickListener {</span>
+
+
+    @Override
+    <span class="s0">protected void </span><span class="s1">onCreate(Bundle savedInstanceState) {</span>
+        <span class="s0">super</span><span class="s1">.onCreate(savedInstanceState)</span><span class="s0">;</span>
+        <span class="s1">setContentView(R.layout.activity_main)</span><span class="s0">;</span>
+
+        <span class="s2">// number button and click events</span>
+        <span class="s1">Button zero = (Button) findViewById(R.id.B0)</span><span class="s0">;</span>
+        <span class="s1">Button one = (Button) findViewById(R.id.B1)</span><span class="s0">;</span>
+        <span class="s1">Button two = (Button) findViewById(R.id.B2)</span><span class="s0">;</span>
+        <span class="s1">Button three = (Button) findViewById(R.id.B3)</span><span class="s0">;</span>
+        <span class="s1">Button four = (Button) findViewById(R.id.B4)</span><span class="s0">;</span>
+        <span class="s1">Button five = (Button) findViewById(R.id.B5)</span><span class="s0">;</span>
+        <span class="s1">Button six = (Button) findViewById(R.id.B6)</span><span class="s0">;</span>
+        <span class="s1">Button seven = (Button) findViewById(R.id.B7)</span><span class="s0">;</span>
+        <span class="s1">Button eight = (Button) findViewById(R.id.B8)</span><span class="s0">;</span>
+        <span class="s1">Button nine = (Button) findViewById(R.id.B9)</span><span class="s0">;</span>
+
+        <span class="s1">zero.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">one.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">two.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">three.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">four.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">five.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">six.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">seven.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">eight.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">nine.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+
+
+        <span class="s2">//operator button and click event</span>
+
+        <span class="s1">Button back = (Button) findViewById(R.id.back)</span><span class="s0">;</span>
+        <span class="s1">Button plus = (Button) findViewById(R.id.plus)</span><span class="s0">;</span>
+        <span class="s1">Button sub =  (Button) findViewById(R.id.subtract)</span><span class="s0">;</span>
+        <span class="s1">Button div =  (Button) findViewById(R.id.divide)</span><span class="s0">;</span>
+        <span class="s1">Button mul =  (Button) findViewById(R.id.multi)</span><span class="s0">;</span>
+        <span class="s1">Button per = (Button) findViewById(R.id.per)</span><span class="s0">;</span>
+
+        <span class="s1">back.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">plus.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">sub.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">mul.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">div.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">per.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s2">//other button button</span>
+        <span class="s1">Button equal = (Button) findViewById(R.id.equal)</span><span class="s0">;</span>
+        <span class="s1">Button dot = (Button) findViewById(R.id.dot)</span><span class="s0">;</span>
+        <span class="s1">Button plusMinSign = (Button) findViewById(R.id.plusMinsign)</span><span class="s0">;</span>
+        <span class="s1">Button clearAll = (Button) findViewById(R.id.Clearall)</span><span class="s0">;</span>
+
+        <span class="s1">equal.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">dot.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">plusMinSign.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">clearAll.setOnClickListener(</span><span class="s0">this</span><span class="s1">)</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+
+    @Override
+    <span class="s0">public void </span><span class="s1">onClick(View v)</span>
+    {
+
+
+        TextView t = (TextView) findViewById(R.id.txt1) <span class="s0">, </span><span class="s1">t2 = (TextView) findViewById(R.id.txt2)</span><span class="s0">;</span>
+        <span class="s1">TextView operator  = (TextView) findViewById(R.id.operator)</span><span class="s0">;</span>
+        <span class="s1">String sign </span><span class="s0">;</span>
+
+        switch <span class="s1">(v.getId())</span>
+        {
+            <span class="s0">case </span><span class="s1">R.id.B0:</span>
+            {
+                t.append(<span class="s3">&quot;0&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.B1:</span>
+            {
+                t.append(<span class="s3">&quot;1&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.B2:</span>
+            {
+                t.append(<span class="s3">&quot;2&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.B3:</span>
+            {
+                t.append(<span class="s3">&quot;3&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.B4:</span>
+            {
+                t.append(<span class="s3">&quot;4&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.B5:</span>
+            {
+                t.append(<span class="s3">&quot;5&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.B6:</span>
+            {
+                t.append(<span class="s3">&quot;6&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.B7:</span>
+            {
+                t.append(<span class="s3">&quot;7&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.B8:</span>
+            {
+                t.append(<span class="s3">&quot;8&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.B9:</span>
+            {
+                t.append(<span class="s3">&quot;9&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.back:</span>
+            {
+                String text = t.getText().toString()<span class="s0">;</span>
+
+                if<span class="s1">(text.contains(</span><span class="s3">&quot;Infinity&quot;</span><span class="s1">) || text.equalsIgnoreCase(</span><span class="s3">&quot;NaN&quot;</span><span class="s1">))</span>
+                {
+                    t.setText(<span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    return;
+                <span class="s1">}</span>
+                <span class="s0">if</span><span class="s1">(text.length() &gt; </span><span class="s4">0</span><span class="s1">)</span>
+                    t.setText(text.substring(<span class="s4">0</span><span class="s0">, </span><span class="s1">text.length() - </span><span class="s4">1</span><span class="s1">))</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.plus:</span>
+            {
+                <span class="s0">if </span><span class="s1">(OperatorNeedChange(t </span><span class="s0">, </span><span class="s1">operator </span><span class="s0">, </span><span class="s3">&quot;+&quot;</span><span class="s1">))</span>
+                {
+                    <span class="s0">return;</span>
+                <span class="s1">}</span>
+                operatorCase(t <span class="s0">, </span><span class="s1">t2 </span><span class="s0">, </span><span class="s1">operator </span><span class="s0">, </span><span class="s3">&quot;+&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.multi:</span>
+            {
+                <span class="s0">if </span><span class="s1">(OperatorNeedChange(t </span><span class="s0">, </span><span class="s1">operator </span><span class="s0">, </span><span class="s3">&quot;*&quot;</span><span class="s1">))</span>
+                {
+                    <span class="s0">return;</span>
+                <span class="s1">}</span>
+                operatorCase(t <span class="s0">, </span><span class="s1">t2 </span><span class="s0">, </span><span class="s1">operator </span><span class="s0">, </span><span class="s3">&quot;*&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.subtract:</span>
+            {
+                <span class="s0">if </span><span class="s1">(OperatorNeedChange(t </span><span class="s0">, </span><span class="s1">operator </span><span class="s0">, </span><span class="s3">&quot;-&quot;</span><span class="s1">))</span>
+                {
+                    <span class="s0">return;</span>
+                <span class="s1">}</span>
+                operatorCase(t <span class="s0">, </span><span class="s1">t2 </span><span class="s0">, </span><span class="s1">operator </span><span class="s0">, </span><span class="s3">&quot;-&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.divide:</span>
+            {
+                <span class="s0">if </span><span class="s1">(OperatorNeedChange(t </span><span class="s0">, </span><span class="s1">operator </span><span class="s0">, </span><span class="s3">&quot;/&quot;</span><span class="s1">))</span>
+                {
+                    <span class="s0">return;</span>
+                <span class="s1">}</span>
+                operatorCase(t <span class="s0">, </span><span class="s1">t2 </span><span class="s0">, </span><span class="s1">operator </span><span class="s0">, </span><span class="s3">&quot;/&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.equal:</span>
+            {
+                <span class="s0">if</span><span class="s1">(t2.length() &gt; </span><span class="s4">0 </span><span class="s1">&amp;&amp; (t.length() &gt; </span><span class="s4">0</span><span class="s1">))</span>
+                {
+                    sign = operator.getText().toString()<span class="s0">;</span>
+
+                    <span class="s1">Float val1</span><span class="s0">, </span><span class="s1">val2  </span><span class="s0">;</span>
+                    <span class="s1">val1 = Float.valueOf(t.getText().toString())</span><span class="s0">;</span>
+                    <span class="s1">val2 = Float.valueOf(t2.getText().toString())</span><span class="s0">;</span>
+
+                    <span class="s1">t.setText(String.valueOf(eval(val1 </span><span class="s0">, </span><span class="s1">val2 </span><span class="s0">, </span><span class="s1">sign )))</span><span class="s0">;</span>
+                    <span class="s1">t2.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">operator.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+                    <span class="s1">ifDotZero(t)</span><span class="s0">;</span>
+                <span class="s1">}</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+            <span class="s0">case </span><span class="s1">R.id.dot:</span>
+            {
+                String temp = t.getText().toString()<span class="s0">;</span>
+                if<span class="s1">(temp.contains(</span><span class="s3">&quot;.&quot;</span><span class="s1">))</span>
+                {
+                    <span class="s0">return;</span>
+                <span class="s1">}</span>
+                <span class="s0">else</span>
+                <span class="s1">{</span>
+                    <span class="s0">if</span><span class="s1">(t.length() &lt; </span><span class="s4">1 </span><span class="s1">)</span>
+                    {
+                        t.append(<span class="s3">&quot;0&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                    <span class="s1">}</span>
+                    t.append(<span class="s3">&quot;.&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">}</span>
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.per:</span>
+            {
+                <span class="s0">if </span><span class="s1">(t.length() &lt; </span><span class="s4">1</span><span class="s1">)</span>
+                {
+                    <span class="s0">return;</span>
+                <span class="s1">}</span>
+                sign = operator.getText().toString()<span class="s0">;</span>
+
+                switch <span class="s1">(sign)</span>
+                {
+                    <span class="s0">case </span><span class="s3">&quot;*&quot;</span><span class="s1">:</span>
+                    {
+                        Float val1<span class="s0">, </span><span class="s1">val2  </span><span class="s0">;</span>
+                        <span class="s1">val1 = Float.valueOf(t.getText().toString())</span><span class="s0">;</span>
+                        <span class="s1">val2 = Float.valueOf(t2.getText().toString())</span><span class="s0">;</span>
+
+                        <span class="s1">val1 = (val1*val2) / </span><span class="s4">100</span><span class="s0">;</span>
+
+                        <span class="s1">t.setText(String.valueOf(val1))</span><span class="s0">;</span>
+                        <span class="s1">t2.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                        <span class="s1">operator.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+                        <span class="s1">ifDotZero(t)</span><span class="s0">;</span>
+
+                        break;
+                    <span class="s1">}</span>
+
+                    <span class="s0">case </span><span class="s3">&quot;/&quot;</span><span class="s1">:</span>
+                    {
+                        Float val1<span class="s0">, </span><span class="s1">val2  </span><span class="s0">;</span>
+                        <span class="s1">val1 = Float.valueOf(t.getText().toString())</span><span class="s0">;</span>
+                        <span class="s1">val2 = Float.valueOf(t2.getText().toString())</span><span class="s0">;</span>
+
+                        <span class="s1">val1 = (</span><span class="s4">100</span><span class="s1">*val2) / val1</span><span class="s0">;</span>
+
+
+                        <span class="s1">t.setText(String.valueOf(val1))</span><span class="s0">;</span>
+                        <span class="s1">t2.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                        <span class="s1">operator.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+                        <span class="s1">ifDotZero(t)</span><span class="s0">;</span>
+
+                        break;
+                    <span class="s1">}</span>
+
+                    <span class="s0">case </span><span class="s3">&quot;+&quot;</span><span class="s1">:</span>
+                    {
+                        Float val1<span class="s0">, </span><span class="s1">val2  </span><span class="s0">;</span>
+                        <span class="s1">val1 = Float.valueOf(t.getText().toString())</span><span class="s0">;</span>
+                        <span class="s1">val2 = Float.valueOf(t2.getText().toString())</span><span class="s0">;</span>
+
+                        <span class="s1">val1 = (val1*val2) / </span><span class="s4">100</span><span class="s0">;</span>
+                        <span class="s1">val1 += val2</span><span class="s0">;</span>
+
+                        <span class="s1">t.setText(String.valueOf(val1))</span><span class="s0">;</span>
+                        <span class="s1">t2.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                        <span class="s1">operator.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+                        <span class="s1">ifDotZero(t)</span><span class="s0">;</span>
+
+                        break;
+                    <span class="s1">}</span>
+
+                    <span class="s0">case </span><span class="s3">&quot;-&quot;</span><span class="s1">:</span>
+                    {
+                        Float val1<span class="s0">, </span><span class="s1">val2  </span><span class="s0">;</span>
+                        <span class="s1">val1 = Float.valueOf(t.getText().toString())</span><span class="s0">;</span>
+                        <span class="s1">val2 = Float.valueOf(t2.getText().toString())</span><span class="s0">;</span>
+
+                        <span class="s1">val1 = (val1*val2) / </span><span class="s4">100</span><span class="s0">;</span>
+                        <span class="s1">val1 -= val2</span><span class="s0">;</span>
+
+                        <span class="s1">t.setText(String.valueOf(val1))</span><span class="s0">;</span>
+                        <span class="s1">t2.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                        <span class="s1">operator.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+                        <span class="s1">ifDotZero(t)</span><span class="s0">;</span>
+
+                        break;
+                    <span class="s1">}</span>
+                }
+
+                <span class="s0">break;</span>
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.plusMinsign:</span>
+            {
+                <span class="s0">if</span><span class="s1">(t.length() &lt; </span><span class="s4">1</span><span class="s1">)</span>
+                {
+                    t.setText(<span class="s3">&quot;0&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">}</span>
+                Float val1 = Float.valueOf(t.getText().toString())<span class="s0">;</span>
+                <span class="s1">val1 *= -</span><span class="s4">1</span><span class="s0">;</span>
+
+                <span class="s1">t.setText(String.valueOf(val1))</span><span class="s0">;</span>
+
+                <span class="s1">ifDotZero(t)</span><span class="s0">;</span>
+
+                break;
+            <span class="s1">}</span>
+
+            <span class="s0">case </span><span class="s1">R.id.Clearall:</span>
+            {
+                t.setText(<span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">t2.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+                <span class="s1">operator.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        }
+
+
+    }
+
+    Float eval(Float v1 <span class="s0">, </span><span class="s1">Float v2 </span><span class="s0">, </span><span class="s1">String sign)</span>
+    {
+        <span class="s0">switch </span><span class="s1">(sign)</span>
+        {
+            <span class="s0">case </span><span class="s3">&quot;+&quot;</span><span class="s1">:</span>
+            {
+                <span class="s0">return </span><span class="s1">v2+v1 </span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s0">case </span><span class="s3">&quot;-&quot;</span><span class="s1">:</span>
+            {
+                <span class="s0">return </span><span class="s1">v2-v1 </span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s0">case </span><span class="s3">&quot;*&quot;</span><span class="s1">:</span>
+            {
+                <span class="s0">return </span><span class="s1">v2*v1 </span><span class="s0">;</span>
+            <span class="s1">}</span>
+            <span class="s0">case </span><span class="s3">&quot;/&quot;</span><span class="s1">:</span>
+            {
+                <span class="s0">return  </span><span class="s1">v2/v1</span><span class="s0">;</span>
+            <span class="s1">}</span>
+        }
+        <span class="s0">return </span><span class="s1">v1 </span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    String checkSign(TextView operator <span class="s0">, </span><span class="s1">String sign)</span>
+    {
+        <span class="s0">if</span><span class="s1">(!(operator.length() &gt; </span><span class="s4">0</span><span class="s1">) )</span>
+        {
+            operator.setText(sign)<span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">else</span>
+        <span class="s1">{</span>
+            String temp = operator.getText().toString()<span class="s0">;</span>
+            <span class="s1">operator.setText(sign)</span><span class="s0">;</span>
+            return <span class="s1">temp</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return </span><span class="s1">sign</span><span class="s0">;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">void </span><span class="s1">mainEval(TextView t </span><span class="s0">, </span><span class="s1">TextView t2 </span><span class="s0">, </span><span class="s1">String sign)</span>
+    {
+        Float val1<span class="s0">, </span><span class="s1">val2  </span><span class="s0">;</span>
+        <span class="s1">val1 = Float.valueOf(t.getText().toString())</span><span class="s0">;</span>
+        <span class="s1">val2 = Float.valueOf(t2.getText().toString())</span><span class="s0">;</span>
+
+        <span class="s1">val2 = eval(val1 </span><span class="s0">, </span><span class="s1">val2 </span><span class="s0">, </span><span class="s1">sign)</span><span class="s0">;</span>
+
+        <span class="s1">t.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+        <span class="s1">t2.setText(val2.toString())</span><span class="s0">;</span>
+
+    <span class="s1">}</span>
+
+    <span class="s0">boolean </span><span class="s1">operatorCase(TextView t </span><span class="s0">, </span><span class="s1">TextView t2 </span><span class="s0">, </span><span class="s1">TextView operator </span><span class="s0">, </span><span class="s1">String sign)</span>
+    {
+      <span class="s2">/*  if(errStat) 
+        { 
+            return false; 
+        }*/</span>
+
+        <span class="s1">sign = checkSign(operator </span><span class="s0">, </span><span class="s1">sign)</span><span class="s0">;</span>
+
+
+        if<span class="s1">( !(t2.length() &gt; </span><span class="s4">0</span><span class="s1">) )</span>
+        {
+            t2.setText(t.getText())<span class="s0">;</span>
+            <span class="s1">t.setText(</span><span class="s3">&quot;&quot;</span><span class="s1">)</span><span class="s0">;</span>
+
+        <span class="s1">}</span>
+        <span class="s0">else</span>
+        <span class="s1">{</span>
+            mainEval(t <span class="s0">, </span><span class="s1">t2 </span><span class="s0">, </span><span class="s1">sign)</span><span class="s0">;</span>
+        <span class="s1">}</span>
+        <span class="s0">return true;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">boolean </span><span class="s1">OperatorNeedChange(TextView t </span><span class="s0">, </span><span class="s1">TextView operator </span><span class="s0">, </span><span class="s1">String sign)</span>
+    {
+        <span class="s0">if</span><span class="s1">(t.length() &lt; </span><span class="s4">1 </span><span class="s1">&amp;&amp; operator.length() &gt; </span><span class="s4">0</span><span class="s1">)</span>
+        {
+            operator.setText(sign)<span class="s0">;</span>
+            return true;
+        <span class="s1">}</span>
+        <span class="s0">return false;</span>
+    <span class="s1">}</span>
+
+    <span class="s0">void </span><span class="s1">ifDotZero(TextView t)</span>
+    {
+        String temp = t.getText().toString()<span class="s0">;</span>
+
+        <span class="s1">String substring = temp.substring(temp.length() - </span><span class="s4">2 </span><span class="s0">, </span><span class="s1">temp.length()  )</span><span class="s0">;</span>
+
+        if<span class="s1">(substring.equals(</span><span class="s3">&quot;.0&quot;</span><span class="s1">))</span>
+        {
+            t.setText(temp.substring(<span class="s4">0 </span><span class="s0">, </span><span class="s1">temp.length() - </span><span class="s4">2</span><span class="s1">))</span><span class="s0">;</span>
+        <span class="s1">}</span>
+    }
+
+}
+</pre>
+</body>
+</html>
